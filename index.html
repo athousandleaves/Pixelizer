@@ -4,20 +4,21 @@
 <head>
     <title>The Pixelizer</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oxygen" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="app.css">
 </head>
 
 <body>
-    <h1>
+    <h1 class='header'>
         <u>The Pixelizer</u>
     </h1>
 
-    <h4>
+    <h4 class='description'>
         Select grid size to begin. Then, select a color and start painting!
     </h4>
     <form id="sizePicker">
-        <input type="number" id="input_height" name="height" min="1" max="100" value="15"> x
-        <input type="number" id="input_width" name="width" min="1" max="100" value="25">
+        <input type="number" id="input_height" name="height" min="1" max="200" value="40"> x
+        <input type="number" id="input_width" name="width" min="1" max="200" value="50">
         <input type="submit" id='submit' value="Create">
     </form>
 

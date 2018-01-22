@@ -12,7 +12,7 @@ animation-duration: 4s;
   100% { opacity: 1; }
 }
 
-h1 {
+.header {
   font-family: Oxygen;
   font-size: 4em;
   margin: 0;
@@ -34,7 +34,7 @@ h4:first-of-type {
 table,
 tr,
 td {
-  border: 1px solid rgba(84, 84, 163, 0.4);
+  border: 1px solid rgba(172, 172, 238, 0.6);
 }
 
 table {
@@ -44,11 +44,11 @@ table {
 }
 
 tr {
-  height: 30px;
+  height: 15px;
 }
 
 td {
-  width: 30px;
+  width: 15px;
 }
 
 input[type="number"] {
@@ -98,4 +98,16 @@ input[type="submit"] {
 #colorDiv {
   display: none;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    font-size: 1.5em;
+  }
+  h4 {
+    font-size: 0.6em;
+  }
+  input[type="submit"] {
+    font-size: 0.75em;
+  }
 }
