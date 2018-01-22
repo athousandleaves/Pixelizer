@@ -25,3 +25,9 @@ const makeGrid = () => {
   reset.textContent = "Reset";
   document.body.appendChild(reset);
 };
+
+// listen for clicks on the submit button
+sizePicker.addEventListener('submit', (e) => {
+  e.preventDefault();
+  makeGrid();
+});
