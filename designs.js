@@ -31,3 +31,14 @@ sizePicker.addEventListener('submit', (e) => {
   e.preventDefault();
   makeGrid();
 });
+
+// paint the canvas
+canvas.addEventListener('mousedown', (e) => {
+  if(e.which == 3 || e.ctrlKey) {
+    e.preventDefault();
+    // clear cell on right click / ctrl+click
+   return e.target.style.backgroundColor = 'inherit';
+  }
+  let color = colorPicker.value;
+  e.target.style.backgroundColor = color;
+});
