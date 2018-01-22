@@ -42,3 +42,12 @@ canvas.addEventListener('mousedown', (e) => {
   let color = colorPicker.value;
   e.target.style.backgroundColor = color;
 });
+
+// reset grid
+reset.addEventListener('click', () => {
+  while (canvas.firstChild) {
+    canvas.removeChild(canvas.firstChild);
+  }
+  colorDiv.style.display = 'none';
+  document.body.removeChild(reset);
+});
