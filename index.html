@@ -2,38 +2,65 @@
 <html>
 
 <head>
-    <title>The Pixelizer</title>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oxygen" rel="stylesheet">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="app.css">
+  <title>Pixelizer</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oxygen" rel="stylesheet">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="app.css">
 </head>
 
 <body>
-    <h1 class='header'>
-        <u>The Pixelizer</u>
-    </h1>
+  <h1 class='header'>
+    Pixelizer
+  </h1>
 
-    <h4 class='description'>
-        Select grid size to begin. Then, select a color and start painting!
-    </h4>
-    <form id="sizePicker">
-        <input type="number" id="input_height" name="height" min="1" max="200" value="30"> x
-        <input type="number" id="input_width" name="width" min="1" max="200" value="40">
-        <input type="submit" id='submit' value="Create">
-    </form>
+  <h4 class='description'>
+    Select grid size to begin. Then, select a color and start painting!
+  </h4>
+  <form id="sizePicker">
+    <input type="number" id="input_height" name="height" min="1" max="200" value="30"> x
+    <input type="number" id="input_width" name="width" min="1" max="200" value="40">
+    <input type="submit" id='submit' value="Create">
+  </form>
 
-    <div id="colorDiv">
-        <span>
-            <h4>Color Picker:</h4>
+  <div id="colorDiv">
+    <span>
+      <h4>Color Picker:</h4>
+    </span>
+    <span>
+      <input type="color" value='#a33c0a' id="colorPicker">
+    </span>
+  </div>
+
+  <div id="colorChoiceDiv">
+    <span>
+      <h4>Recommended Colors:</h4>
+    </span>
+    <span>
+      <div class="colorChoices">
+        <span class="color1">
+          <input type="radio" class="radio" name="colorChoice" id="color1" value="#a33c0a">
         </span>
-        <span><input type="color" value='#a33c0a' id="colorPicker"></span>
-    </div>
+        <span class="color2">
+          <input type="radio" class="radio" name="colorChoice" id="color2" value="#a48cb4">
+        </span>
+        <span class="color3">
+          <input type="radio" class="radio" name="colorChoice" id="color3" value="#5c5bab">
+        </span>
+        <span class="color4">
+          <input type="radio" class="radio" name="colorChoice" id="color4" value="#9c6479">
+        </span>
+        <span class="color5">
+          <input type="radio" class="radio" name="colorChoice" id="color5" value="#fd935d">
+        </span>
+      </div>
+    </span>
+  </div>
 
 
-    <table id="pixel_canvas">
-    </table>
+  <table id="pixel_canvas">
+  </table>
 
-    <script src="designs.js"></script>
+  <script src="designs.js"></script>
 </body>
 
 </html>

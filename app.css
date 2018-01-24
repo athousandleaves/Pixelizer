@@ -1,15 +1,10 @@
 body {
   text-align: center;
   font-family: Noto Serif;
-  padding-top: 1.2em;
-  background-color: rgb(244, 220, 230);
+  padding-top: 0.7em;
+  background-color: rgb(245, 226, 234);
 animation-duration: 4s;
   animation-name: fadein;
-}
-
-@keyframes fadein {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
 }
 
 .header {
@@ -20,15 +15,14 @@ animation-duration: 4s;
   color: rgb(163, 60, 10);
 }
 
-h4 {
-  margin: 1em 0 0.25em;
-  color: rgb(84, 84, 163);
-  font-size: 1em;
+.description {
+  margin: 0 0 0.25em;
 }
 
-h4:first-of-type {
-  margin-top: 0.5em;
-  /* margin-bottom: 0.5em; */
+h4 {
+  color: rgb(84, 84, 163);
+  margin: 0 auto;
+  font-size: 1em;
 }
 
 table,
@@ -62,7 +56,7 @@ input[type="number"] {
   width: 3em;
   padding: 0.2em;
   border-radius: 5px;
-  background-color: rgb(255, 226, 236);
+  background-color: rgb(248, 229, 236);
 }
 
 input[type="color"] {
@@ -71,7 +65,6 @@ input[type="color"] {
   height: 35px;
   background-color: inherit;
   border: none;
-  border-radius: 65px;
   cursor: pointer;
 }
 
@@ -101,9 +94,71 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+#sizePicker {
+  margin-bottom: 0.2em;
+}
+
 #colorDiv {
   display: none;
-  margin: 0 auto;
+  margin: 0.2em auto;
+  max-width: 300px;
+}
+
+#colorChoiceDiv {
+  display: none;
+  grid-template-columns: 1fr 2fr;
+  margin: 0.6em auto;
+  max-width: 500px;
+  font-size: 1em;
+}
+
+.colorChoices {
+  display: grid;
+  grid-gap: 0.3em;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+span.color1,
+span.color2,
+span.color3,
+span.color4,
+span.color5 {
+  padding: 0.4em 0.4em;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.colorChoices > span {
+  cursor: pointer;
+}
+
+.colorChoices > span > input {
+display: inline-block;
+}
+
+.color1 {
+  background-color: #a33c0a;
+}
+
+.color2 {
+  background-color: #a48cb4;
+}
+
+.color3 {
+  background-color: #5c5bab;
+}
+
+.color4 {
+  background-color: #9c6479;
+}
+
+.color5 {
+  background-color: #fd935d;
+}
+
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @media (max-width: 500px) {

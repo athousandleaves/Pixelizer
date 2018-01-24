@@ -1,12 +1,15 @@
-const colorPicker = document.getElementById("colorPicker"),
-      sizePicker  = document.getElementById("sizePicker"),
-      colorDiv    = document.getElementById("colorDiv"),
-      canvas      = document.getElementById("pixel_canvas"),
-      reset       = document.createElement("button");
+const colorPicker  = document.getElementById("colorPicker"),
+      sizePicker   = document.getElementById("sizePicker"),
+      colorDiv     = document.getElementById("colorDiv"),
+      colorChoices = document.getElementById("colorChoiceDiv"),
+      canvas       = document.getElementById("pixel_canvas"),
+      reset        = document.createElement("button"),
+      radios       = document.getElementsByClassName("radio");
 
 const makeGrid = () => {
-  // display color picker
-  colorDiv.style.display = "grid";
+  // display color picker and color recommendations
+  // colorDiv.style.display = "grid";
+  colorChoices.style.display = "block";
   // set up grid
   let height = document.getElementById("input_height").value;
   let width = document.getElementById("input_width").value;
@@ -24,30 +27,90 @@ const makeGrid = () => {
   reset.className = "reset";
   reset.textContent = "Reset";
   document.body.appendChild(reset);
+  sizePicker.style.display = 'none';
 };
 
+let isClicked = false;
+const paintGrid = (e) => {
+  if (setCheck) {
+    if (e.type == 'mousedown') {
+      isClicked = true;
+      let color = setCheck.value;
+      e.target.style.backgroundColor = color;
+    };
+    if (e.type == 'mouseup') {
+      isClicked = false;
+    };
+    if (e.type == 'mouseover' && isClicked) {
+      let color = setCheck.value;
+      e.target.style.backgroundColor = color;
+    }
+    // clear cell on right click / ctrl+click
+    if (e.which == 3 || e.ctrlKey) {
+      e.preventDefault();
+      return (e.target.style.backgroundColor = "inherit");
+    }
+  }
+  
+  // if(setCheck) {
+  //   let color = setCheck.value;
+  //   e.target.style.backgroundColor = color;
+  // }
+}
+
 // listen for clicks on the submit button
-sizePicker.addEventListener('submit', (e) => {
+sizePicker.addEventListener("submit", e => {
   e.preventDefault();
   makeGrid();
 });
 
-// paint the canvas
-canvas.addEventListener('mousedown', (e) => {
-  if(e.which == 3 || e.ctrlKey) {
-    e.preventDefault();
-    // clear cell on right click / ctrl+click
-   return e.target.style.backgroundColor = 'inherit';
-  }
-  let color = colorPicker.value;
-  e.target.style.backgroundColor = color;
-});
+// toggle radio buttons for color choices
+let setCheck;
+for (i = 0; i < radios.length; i++) {
+  radios[i].onclick = function(e) {
+    if (setCheck != this) {
+      setCheck = this;
+    } else {
+      this.checked = false;
+      setCheck = null;
+    }
+    canvas.addEventListener("mousedown", paintGrid);
+    window.addEventListener("mouseup", paintGrid);
+    canvas.addEventListener("mouseover", paintGrid);
+  };
+}
 
 // reset grid
-reset.addEventListener('click', () => {
+reset.addEventListener("click", () => {
   while (canvas.firstChild) {
     canvas.removeChild(canvas.firstChild);
   }
-  colorDiv.style.display = 'none';
+  colorDiv.style.display = "none";
+  colorChoices.style.display = "none";
+  sizePicker.style.display = 'inherit';
   document.body.removeChild(reset);
 });
+
+
+
+// canvas.addEventListener("mousedown", e => {
+    //   if (e.which == 3 || e.ctrlKey) {
+    //     e.preventDefault();
+    //     // clear cell on right click / ctrl+click
+    //     return (e.target.style.backgroundColor = "inherit");
+    //   }
+    //   if(setCheck) {
+    //     let color = this.value;
+    //     e.target.style.backgroundColor = color;
+    //   }
+    //   // // click and drag
+    //   // canvas.addEventListener("mouseover", e => {
+    //   //   while(setCheck && isClicked) {
+    //   //     let color = this.value;
+    //   //     e.target.style.backgroundColor = color;
+    //   //   }
+    //   // });
+    //   // canvas.addEventListener('mouseup', e => {
+    //   //   isClicked = false;
+    //   // });
+    // });
