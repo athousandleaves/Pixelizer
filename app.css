@@ -9,7 +9,7 @@ animation-duration: 4s;
 
 .header {
   font-family: Oxygen;
-  font-size: 4em;
+  font-size: 3.6em;
   margin: 0;
   font-weight: bolder;
   color: rgb(163, 60, 10);
@@ -114,27 +114,22 @@ input[type="submit"] {
 
 .colorChoices {
   display: grid;
-  grid-gap: 0.3em;
+  grid-gap: 0.5em;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  
 }
 
-span.color1,
-span.color2,
-span.color3,
-span.color4,
-span.color5 {
-  padding: 0.4em 0.4em;
+.colorChoices * {
+  padding: 0.5em 0.5em;
   border-radius: 5px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-}
-
-.colorChoices > span {
   cursor: pointer;
+  display: inline-block;
 }
 
-.colorChoices > span > input {
+/* .colorChoices > span > input {
 display: inline-block;
-}
+} */
 
 .color1 {
   background-color: #a33c0a;

@@ -30,6 +30,7 @@ const makeGrid = () => {
   sizePicker.style.display = 'none';
 };
 
+// toggle boolean for click n' drag functionality
 let isClicked = false;
 const paintGrid = (e) => {
   if (setCheck) {
@@ -51,11 +52,6 @@ const paintGrid = (e) => {
       return (e.target.style.backgroundColor = "inherit");
     }
   }
-  
-  // if(setCheck) {
-  //   let color = setCheck.value;
-  //   e.target.style.backgroundColor = color;
-  // }
 }
 
 // listen for clicks on the submit button
@@ -90,27 +86,3 @@ reset.addEventListener("click", () => {
   sizePicker.style.display = 'inherit';
   document.body.removeChild(reset);
 });
-
-
-
-// canvas.addEventListener("mousedown", e => {
-    //   if (e.which == 3 || e.ctrlKey) {
-    //     e.preventDefault();
-    //     // clear cell on right click / ctrl+click
-    //     return (e.target.style.backgroundColor = "inherit");
-    //   }
-    //   if(setCheck) {
-    //     let color = this.value;
-    //     e.target.style.backgroundColor = color;
-    //   }
-    //   // // click and drag
-    //   // canvas.addEventListener("mouseover", e => {
-    //   //   while(setCheck && isClicked) {
-    //   //     let color = this.value;
-    //   //     e.target.style.backgroundColor = color;
-    //   //   }
-    //   // });
-    //   // canvas.addEventListener('mouseup', e => {
-    //   //   isClicked = false;
-    //   // });
-    // });
