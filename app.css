@@ -98,12 +98,6 @@ input[type="submit"] {
   margin-bottom: 0.2em;
 }
 
-#colorDiv {
-  display: none;
-  margin: 0.2em auto;
-  max-width: 300px;
-}
-
 #colorChoiceDiv {
   display: none;
   grid-template-columns: 1fr 2fr;
@@ -126,10 +120,6 @@ input[type="submit"] {
   cursor: pointer;
   display: inline-block;
 }
-
-/* .colorChoices > span > input {
-display: inline-block;
-} */
 
 .color1 {
   background-color: #a33c0a;
