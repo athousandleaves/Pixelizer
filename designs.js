@@ -8,7 +8,6 @@ const colorPicker  = document.getElementById("colorPicker"),
 
 const makeGrid = () => {
   // display color picker and color recommendations
-  // colorDiv.style.display = "grid";
   colorChoices.style.display = "block";
   // set up grid
   let height = document.getElementById("input_height").value;
@@ -23,33 +22,23 @@ const makeGrid = () => {
       tr.appendChild(td);
     }
   }
-  // place reset button below grid
+  // place reset button below grid and hide sizePicker
   reset.className = "reset";
   reset.textContent = "Reset";
   document.body.appendChild(reset);
   sizePicker.style.display = 'none';
 };
 
-// toggle boolean for click n' drag functionality
-let isClicked = false;
-const paintGrid = (e) => {
+const paintGrid = e => {
   if (setCheck) {
-    if (e.type == 'mousedown') {
-      isClicked = true;
+    if (e.type == 'mousedown' || e.type == 'mousemove' && e.which === 1) {
       let color = setCheck.value;
       e.target.style.backgroundColor = color;
     };
-    if (e.type == 'mouseup') {
-      isClicked = false;
-    };
-    if (e.type == 'mouseover' && isClicked) {
-      let color = setCheck.value;
-      e.target.style.backgroundColor = color;
-    }
     // clear cell on right click / ctrl+click
     if (e.which == 3 || e.ctrlKey) {
       e.preventDefault();
-      return (e.target.style.backgroundColor = "inherit");
+      return (e.target.style.backgroundColor = "rgb(245, 226, 234)");
     }
   }
 }
@@ -71,8 +60,11 @@ for (i = 0; i < radios.length; i++) {
       setCheck = null;
     }
     canvas.addEventListener("mousedown", paintGrid);
-    window.addEventListener("mouseup", paintGrid);
-    canvas.addEventListener("mouseover", paintGrid);
+    canvas.addEventListener("mousemove", paintGrid);
+    // remove right click menu
+    canvas.addEventListener('contextmenu', e => { 
+      e.preventDefault();
+    }, false);
   };
 }
 
